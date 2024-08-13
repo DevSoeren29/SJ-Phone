@@ -88,7 +88,7 @@ body {
 .volume-up, .volume-down, .power-button {
     width: 3%;
     height: 10%;
-    background-color: #333;
+    background-color: #d80e0e;
     border-radius: 1vw;
 }
 
