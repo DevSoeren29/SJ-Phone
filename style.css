@@ -1,1 +1,39 @@
+.phone {
+	width: 300px;
+	height: 500px;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 20px;
+}
 
+.screen {
+	width: 100%;
+	height: 200px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.keys {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.key {
+	width: 30%;
+	height: 40px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	margin: 10px;
+	padding: 10px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.key:hover {
+	background-color: #f0f0f0;
+}
