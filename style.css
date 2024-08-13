@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
 }
 
 .phone-container {
@@ -13,21 +13,97 @@ body {
     align-items: center;
     background-color: #000;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 40px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .phone {
     position: relative;
     width: 300px;
     height: 600px;
-    border-radius: 30px;
+    border-radius: 40px;
     background-color: #111;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
 .phone-screen {
     width: 100%;
     height: 100%;
-    border-radius: 30px;
     object-fit: cover;
+    border-radius: 40px;
+    z-index: 1;
+}
+
+.phone-top {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.speaker {
+    width: 60px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+.camera {
+    position: absolute;
+    right: 10%;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+    border: 2px solid #555;
+}
+
+.phone-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.volume-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.volume-up, .volume-down, .power-button {
+    width: 10px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+.power-button {
+    width: 8px;
+    height: 50px;
+}
+
+.volume-indicator {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 10;
+    font-size: 16px;
 }

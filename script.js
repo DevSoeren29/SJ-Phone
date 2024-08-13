@@ -1,19 +1,48 @@
-// Get the phone image element
-const phoneImage = document.getElementById('phone-image');
+// Select elements
+const powerButton = document.getElementById('power-button');
+const volumeUpButton = document.getElementById('volume-up');
+const volumeDownButton = document.getElementById('volume-down');
+const phoneScreen = document.getElementById('phone-screen');
+const volumeIndicator = document.getElementById('volume-indicator');
 
-// Add an event listener to the phone image element
-phoneImage.addEventListener('click', () => {
-	// Open a file input dialog to select a new image
-	const fileInput = document.createElement('input');
-	fileInput.type = 'file';
-	fileInput.accept = 'image/*';
-	fileInput.onchange = (e) => {
-		const file = fileInput.files[0];
-		const reader = new FileReader();
-		reader.onload = (e) => {
-			phoneImage.src = e.target.result;
-		};
-		reader.readAsDataURL(file);
-	};
-	fileInput.click();
+let screenOn = true; // Screen is on by default
+let volumeLevel = 50; // Default volume level
+
+// Power button toggles the screen on and off
+powerButton.addEventListener('click', () => {
+    screenOn = !screenOn;
+    phoneScreen.style.display = screenOn ? 'block' : 'none';
+});
+
+// Volume up button increases the volume
+volumeUpButton.addEventListener('click', () => {
+    if (volumeLevel < 100) {
+        volumeLevel += 10;
+        updateVolumeIndicator();
+    }
+});
+
+// Volume down button decreases the volume
+volumeDownButton.addEventListener('click', () => {
+    if (volumeLevel > 0) {
+        volumeLevel -= 10;
+        updateVolumeIndicator();
+    }
+});
+
+// Function to update the volume indicator
+function updateVolumeIndicator() {
+    volumeIndicator.textContent = `Volume: ${volumeLevel}%`;
+    volumeIndicator.style.display = 'block';
+    setTimeout(() => {
+        volumeIndicator.style.display = 'none';
+    }, 1000);
+}
+
+// Double-tap on the screen to unlock (if it's off)
+phoneScreen.addEventListener('dblclick', () => {
+    if (!screenOn) {
+        screenOn = true;
+        phoneScreen.style.display = 'block';
+    }
 });
